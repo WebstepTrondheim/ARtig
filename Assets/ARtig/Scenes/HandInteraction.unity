@@ -158,7 +158,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6119066674471379375}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &43334188
+--- !u!114 &43334192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -427,7 +427,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6119066674471379375}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &504341115
+--- !u!114 &504341119
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -808,7 +808,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6119066674471379375}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &648305861
+--- !u!114 &648305865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1066,7 +1066,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6119066674471379375}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &826424363
+--- !u!114 &826424367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1239,7 +1239,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6119066674471379375}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1048652785
+--- !u!114 &1048652789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1510,6 +1510,7 @@ GameObject:
   - component: {fileID: 1258636800}
   - component: {fileID: 1258636802}
   - component: {fileID: 1258636801}
+  - component: {fileID: 1258636803}
   m_Layer: 0
   m_Name: BallsThrownText
   m_TagString: Untagged
@@ -1526,7 +1527,7 @@ Transform:
   m_GameObject: {fileID: 1258636799}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 12, z: 2}
-  m_LocalScale: {x: 0.19999993, y: 0.19999997, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.19999997, z: 1}
   m_Children: []
   m_Father: {fileID: 789851053}
   m_RootOrder: 2
@@ -1592,13 +1593,27 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1258636803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258636799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2547b4dd088644d6aaf64f45df657c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pivotAxis: 0
+  targetTransform: {fileID: 0}
 --- !u!1 &1368100404 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6301783977704275455, guid: 0e7b8c54ef86a4244a4a4783e1097684,
     type: 3}
   m_PrefabInstance: {fileID: 6119066674471379375}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1368100405
+--- !u!114 &1368100409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1772,7 +1787,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6119066674471379375}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1571257164
+--- !u!114 &1571257168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3088,6 +3103,7 @@ GameObject:
   - component: {fileID: 2136750983}
   - component: {fileID: 2136750985}
   - component: {fileID: 2136750984}
+  - component: {fileID: 2136750986}
   m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
@@ -3170,6 +3186,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2136750986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136750982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2547b4dd088644d6aaf64f45df657c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pivotAxis: 0
+  targetTransform: {fileID: 0}
 --- !u!1 &2137331045
 GameObject:
   m_ObjectHideFlags: 0

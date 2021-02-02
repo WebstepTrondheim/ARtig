@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Microsoft.MixedReality.Toolkit.Input;
 using Microsoft.MixedReality.Toolkit;
 
@@ -8,23 +6,31 @@ public class BallThrower : MonoBehaviour, IMixedRealityGestureHandler<Vector3>
 {
     public GameObject ballPrefab;
     public TextMesh ballsThrownText;
+    public TextMesh scoreText;
 
     private int _ballsThrown = 0;
     private int _ballsCount = 30;
 
+    private GameObject _balls;
+
+
     private void OnEnable()
     {
         CoreServices.InputSystem?.RegisterHandler<IMixedRealityGestureHandler<Vector3>>(this);
+        //CoreServices.InputSystem?.RegisterHandler<IMixedRealitySpeechHandler>(this);
     }
 
     private void OnDisable()
     {
         CoreServices.InputSystem?.UnregisterHandler<IMixedRealityGestureHandler<Vector3>>(this);
+        //CoreServices.InputSystem?.UnregisterHandler<IMixedRealitySpeechHandler>(this);
     }
 
     // Start is called before the first frame update
     void Start()
-    {       
+    {
+        _balls = new GameObject("Balls");
+        _balls.transform.parent = gameObject.transform;
     }
 
     // Update is called once per frame
@@ -56,28 +62,47 @@ public class BallThrower : MonoBehaviour, IMixedRealityGestureHandler<Vector3>
     public void OnGestureCompleted(InputEventData eventData)
     {
         var action = eventData.MixedRealityInputAction.Description;
-        if (_ballsThrown < _ballsCount &&  action == "Select")
+        if (action == "Select")
         {
-            throwBall();
+            ThrowBall();
         }
     }
 
-    private void throwBall()
+    public void ThrowBall()
     {
+        if (_ballsThrown >= _ballsCount)
+            return;
+
         var ball = createBall();
         ball.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 0.85f;
         var rigidBody = ball.GetComponent<Rigidbody>();
         rigidBody.velocity = Camera.main.transform.forward * 10;
         
         _ballsThrown++;
-        ballsThrownText.text = $"Balls thrown: { _ballsThrown} of {_ballsCount}";    
+        updateScore();
+    }
+
+    public void Restart()
+    {
+        foreach (Transform child in _balls.transform)
+            Destroy(child.gameObject);
+
+        _ballsThrown = 0;
+        updateScore();
+        scoreText.text = "Score: " + 0;
     }
 
     private GameObject createBall()
     {
         GameObject ball = Instantiate(ballPrefab) as GameObject;
         setRandomColor(ball);
+        ball.transform.parent = _balls.transform;
         return ball;
+    }
+
+    private void updateScore()
+    {
+        ballsThrownText.text = $"Balls thrown: { _ballsThrown} of {_ballsCount}";
     }
 
     private void setRandomColor(GameObject gameObject)

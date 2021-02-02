@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Microsoft.MixedReality.Toolkit.Input;
-using Microsoft.MixedReality.Toolkit;
+﻿using Microsoft.MixedReality.Toolkit;
 using Microsoft.MixedReality.Toolkit.SpatialAwareness;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //public class BallThrower : MonoBehaviour, IMixedRealityGestureHandler<Vector3>, IMixedRealitySpeechHandler
 public class GameControl : MonoBehaviour
@@ -12,10 +10,10 @@ public class GameControl : MonoBehaviour
     public TextMesh _scoreText;
     public TextMesh _ballsThrownText;
 
-    // Start is called before the first frame update
-    private void Awake()
+    public void LoadScene()
     {
-
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.LoadScene("ARtig");
     }
 
     public void ShowMesh()
